@@ -1,6 +1,6 @@
 install: 
 	@echo "Installing..."
-	@python.exe -m pip install --upgrade pip
+	@pip install --upgrade pip
 	@pip install -r requirements.txt
 	@echo "Done."
 
