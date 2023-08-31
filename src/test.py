@@ -1,5 +1,5 @@
 import unittest
-from main import add, sub, mul, div
+from main import add, sub, mul, div, modu
 
 
 class TestMain(unittest.TestCase):
@@ -16,7 +16,10 @@ class TestMain(unittest.TestCase):
         self.assertEqual(div(1, 2), 0.5)
         with self.assertRaises(ValueError):
             div(1, 0)
-
+    def test_modu(self):
+        self.assertEqual(modu(10, 5), 0)
+        with self.assertRaises(ValueError):
+            modu(1, 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,6 +20,12 @@ def div(var1: int, var2: int):
 
     return var1 / var2
 
+def modu(var1: int, var2: int):
+    """Function to get modulus"""
+    if var2 == 0:
+        raise ValueError('Cannot divide by zero')
+
+    return var1 % var2
 
 if __name__ == '__main__':
     try:
@@ -29,9 +35,10 @@ if __name__ == '__main__':
             print('2. Subtract')
             print('3. Multiply')
             print('4. Divide')
-            print('5. Exit')
+            print('5. Modulus')
+            print('6. Exit')
             choice = int(input('Enter your choice: '))
-            if choice == 5:
+            if choice == 6:
                 break
             input1 = int(input('Enter first number: '))
             input2 = int(input('Enter second number: '))
@@ -43,6 +50,8 @@ if __name__ == '__main__':
                 print(mul(input1, input2))
             elif choice == 4:
                 print(div(input1, input2))
+            elif choice == 5:
+                print(modu(input1, input2))
             else:
                 print('Invalid choice')
             print()
