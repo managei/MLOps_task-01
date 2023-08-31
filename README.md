@@ -1,3 +1,5 @@
+[![Python application](https://github.com/managei/MLOps_task-01/actions/workflows/python-app.yml/badge.svg)](https://github.com/managei/MLOps_task-01/actions/workflows/python-app.yml)
+
 # MLOPS Task 01
 
 ## setup
