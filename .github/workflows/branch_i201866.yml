@@ -4,9 +4,9 @@
 name: branch i201866 
 on:
   push:
-    branches: [ "i201866_FarazRazi" ]
+    branches: [ "i201866_Faraz-Razi" ]
   pull_request:
-    branches: [ "i201866_FarazRazi" ]
+    branches: [ "i201866_Faraz-Razi" ]
 
 permissions:
   contents: read
