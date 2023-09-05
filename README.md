@@ -24,6 +24,12 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 venv\Scripts\activate
 ```
 
+- install pip
+
+```bash
+python.exe -m pip install --upgrade pip
+```
+
 - run makefile
 
 ```bash
