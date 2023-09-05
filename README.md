@@ -1,4 +1,4 @@
-[![Python application](https://github.com/managei/MLOps_task-01/actions/workflows/python-app.yml/badge.svg)](https://github.com/managei/MLOps_task-01/actions/workflows/python-app.yml)
+[![branch main](https://github.com/managei/MLOps_task-01/actions/workflows/branch_main.yml/badge.svg)](https://github.com/managei/MLOps_task-01/actions/workflows/branch_main.yml)
 
 # MLOPS Task 01
 
