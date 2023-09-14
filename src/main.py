@@ -1,3 +1,8 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+
 def add(var1: int, var2: int):
     """Function to Add"""
     return var1 + var2
@@ -20,6 +25,7 @@ def div(var1: int, var2: int):
 
     return var1 / var2
 
+
 def modu(var1: int, var2: int):
     """Function to get modulus"""
     if var2 == 0:
@@ -27,34 +33,33 @@ def modu(var1: int, var2: int):
 
     return var1 % var2
 
-if __name__ == '__main__':
-    try:
-        # menu driven program
-        while True:
-            print('1. Add')
-            print('2. Subtract')
-            print('3. Multiply')
-            print('4. Divide')
-            print('5. Modulus')
-            print('6. Exit')
-            choice = int(input('Enter your choice: '))
-            if choice == 6:
-                break
-            input1 = int(input('Enter first number: '))
-            input2 = int(input('Enter second number: '))
-            if choice == 1:
-                print(add(input1, input2))
-            elif choice == 2:
-                print(sub(input1, input2))
-            elif choice == 3:
-                print(mul(input1, input2))
-            elif choice == 4:
-                print(div(input1, input2))
-            elif choice == 5:
-                print(modu(input1, input2))
-            else:
-                print('Invalid choice')
-            print()
 
-    except ValueError as e:
-        print(e)
+@app.route('/calculate', methods=['POST'])
+def calculate():
+    try:
+        data = request.json
+        choice = data['choice']
+        input1 = data['input1']
+        input2 = data['input2']
+
+        if choice == 1:
+            result = add(input1, input2)
+        elif choice == 2:
+            result = sub(input1, input2)
+        elif choice == 3:
+            result = mul(input1, input2)
+        elif choice == 4:
+            result = div(input1, input2)
+        elif choice == 5:
+            result = modu(input1, input2)
+        else:
+            return jsonify({'error': 'Invalid choice'}), 400
+
+        return jsonify({'result': result})
+
+    except (ValueError, KeyError, TypeError):
+        return jsonify({'error': 'Invalid input data'}), 400
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True, port=5000)
