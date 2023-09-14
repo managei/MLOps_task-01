@@ -21,11 +21,11 @@ jobs:
         password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
       
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag auto_bots:latest
 
     - name: Push Docker iamge
       run: |
-        docker tag docker_demo:latest ${{ secrets.DOCKER_USERNAME }}/docker_demo:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/docker_demo:latest
+        docker tag auto_bots:latest ${{ secrets.DOCKER_USERNAME }}/auto_bots:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/auto_bots:latest
 
     
