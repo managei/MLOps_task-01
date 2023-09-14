@@ -2,15 +2,17 @@
 
 FROM python:3.10
 
-COPY . /
+RUN mkdir -p /home/app
+
+COPY . /home/app
+
+EXPOSE 5000
+
+ENV NAME World
+
+WORKDIR /home/app
 
 RUN make install
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
-
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
+# Run main.py when the container launches
 CMD ["python", "src/main.py"]
